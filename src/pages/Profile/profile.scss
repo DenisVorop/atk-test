@@ -1,0 +1,15 @@
+.profile {
+
+    // .profile__container
+
+    &__container {}
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
+        font-weight: 700;
+        font-size: 50px;
+    }
+}

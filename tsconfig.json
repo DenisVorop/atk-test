@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "src/setting.d.ts"  ]
 }

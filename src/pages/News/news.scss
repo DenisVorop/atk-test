@@ -1,0 +1,38 @@
+.news {
+
+    // .news__container
+
+    &__container {}
+
+    // .news__body
+
+    &__body {
+    }
+
+    // .news__cards
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        padding: 32px;
+    }
+
+    // .news__inputs
+
+    &__inputs {
+        padding: 32px;
+        display: flex;
+    }
+
+    // .news__input-name
+
+    &__input-name {
+        margin: 0px 20px 0px 0px;
+    }
+
+    // .news__input-department
+
+    &__input-department {}
+
+}

@@ -1,0 +1,108 @@
+.header {
+    border-bottom: 1px solid #A9B3D4;
+    background: #FBFBFD;
+
+    // .header__container
+
+    &__container {}
+
+    &__left {
+        display: flex;
+        align-items: center;
+    }
+
+    // .header__body
+
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0px;
+    }
+
+    // .header__logo
+
+    &__logo {
+        margin: 0px 120px 0px 0px;
+    }
+
+    &__links {
+        display: flex;
+        align-items: center;
+    }
+
+    &__link {
+        padding: 5px;
+        font-size: 20px;
+        line-height: 28px;
+
+        &:not(:last-child) {
+            margin: 0px 15px 0px 0px;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // .header__main
+
+    &__main {
+        display: flex;
+        align-items: center;
+    }
+
+    // .header__info
+
+    &__info {
+        display: flex;
+        align-items: center;
+        margin: 0px 16px 0px 0px;
+    }
+
+    // .header__user-img
+
+    &__user-img {
+        margin: 0px 12px 0px 0px;
+    }
+
+    // .header__user
+
+    &__user {}
+
+    // .header__name
+
+    &__name {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    // .header__group
+
+    &__group {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    // .header__logout
+
+    &__logout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+    }
+
+    &__login {
+        cursor: pointer;
+    }
+}
+
+.link-active {
+    font-weight: 700;
+    text-decoration: underline;
+}

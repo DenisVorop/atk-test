@@ -1,0 +1,39 @@
+.zui-pager {
+    display: flex;
+    justify-content: center;
+
+    .btn-group {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+
+        &__item {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            height: 40px;
+            float: left;
+
+            .btn {
+                margin: 0;
+                padding: .5em 1em;
+                border: 0;
+                font-weight: 300;
+                background-color: transparent;
+                box-shadow: inset 0px -2px 0px 0px #A9B3D4;
+                color: #7b8298;
+
+                &:hover {
+                    color: #000000;
+                    box-shadow: inset 0px -4px 0px 0px #000000;
+                }
+
+                &__active {
+                    color: #000000;
+                    box-shadow: inset 0px -4px 0px 0px #000000;
+                }
+            }
+        }
+    }
+}
