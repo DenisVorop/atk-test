@@ -7,7 +7,7 @@ const Main: React.FC = () => {
         <div className="main">
             <div className="main__container">
                 <div className="main__title">
-                    А это главная страница
+                    Это главная страница
                 </div>
             </div>
         </div>

@@ -4,29 +4,22 @@ import * as yup from 'yup'
 import { useNavigate } from 'react-router-dom'
 
 import './login.scss'
+import { useAppDispatch, useAppSelector } from '../../store/hooks/redux'
+import { authorization } from '../../store/authSlice/authActionCreators'
 
 const Login: React.FC = () => {
-    const [error, setError] = React.useState<string>('')
+    const {isAuth, error} = useAppSelector(store => store.authReducer)
+    const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
     const login = (values: { login: string; password: string; }) => {
-        if (values.login === 'Admin' && values.password === '12345') {
-            localStorage.setItem('auth', 'true')
-            return navigate('/profile')
-        }
-        return setError('Имя пользователя или пароль введены не верно')
+        dispatch(authorization(values.login, values.password))
     }
 
     React.useEffect(() => {
-        const isAuth = localStorage.getItem('auth')
         if (!!isAuth)
-            navigate('/')
-    }, [])
-
-    React.useEffect(() => {
-        if (error)
-            setTimeout(() => (setError('')), 2000)
-    }, [error])
+            navigate('/profile')
+    }, [isAuth])
 
     const validationLogin = yup.object().shape({
         login: yup.string().typeError('string expected!').required('Поле не может быть пустым!'),

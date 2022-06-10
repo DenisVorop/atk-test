@@ -1,9 +1,11 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 import newsReducer from './newsSlice/newsSlice'
+import authReducer from './authSlice/authSlice'
 
 const rootReducer = combineReducers({
     newsReducer,
+    authReducer,
 })
 
 export const setupStore = () => configureStore({ reducer: rootReducer })

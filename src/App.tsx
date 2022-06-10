@@ -5,17 +5,26 @@ import Header from './components/Header/Header'
 
 import { routes } from './routes'
 
+import { checkAuth } from './store/authSlice/authActionCreators'
+
+import { useAppDispatch, useAppSelector } from './store/hooks/redux'
+
 const App = () => {
     const location = useLocation()
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
+    const {isAuth} = useAppSelector(store => store.authReducer)
 
     React.useEffect(() => {
         if (location.pathname === '/profile') {
-            const localStorageBoolean = localStorage.getItem('auth')
-            if (!localStorageBoolean)
+            if (!isAuth)
                 return navigate('/login')
         }
     }, [location.pathname])
+
+    React.useEffect(() => {
+        dispatch(checkAuth())
+    }, [isAuth])
 
     return (
         <div className="wrapper">
@@ -30,8 +39,8 @@ const App = () => {
                             />
                         ))
                         }
-                        <Route path="*" element={<Navigate to="/" />} />
                     </Route>
+                    <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </main >
         </div >

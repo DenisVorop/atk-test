@@ -5,13 +5,18 @@ import cn from 'classnames'
 import logoutImg from '../../assets/images/logout.svg'
 import logoImg from '../../assets/images/logo.svg'
 
+import { useAppDispatch, useAppSelector } from '../../store/hooks/redux'
+
+import { logout } from '../../store/authSlice/authActionCreators'
+
 import './header.scss'
 
 const Header: React.FC = () => {
-    const navigate = useNavigate()
-    const location = useLocation()
     const [activeLink, setActiveLink] = React.useState('/')
-    const [isAuth, setIsAuth] = React.useState<boolean>(false)
+    const {isAuth} = useAppSelector(store => store.authReducer)
+    const navigate = useNavigate()
+    const dispatch = useAppDispatch()
+    const location = useLocation()
 
     const links = [
         { path: '/', name: 'Главная' },
@@ -25,12 +30,11 @@ const Header: React.FC = () => {
 
     React.useEffect(() => {
         setActiveLink(location.pathname)
-        setIsAuth(!!localStorage.getItem('auth'))
     }, [location.pathname])
 
-    const logout = () => {
+    const exit = () => {
         localStorage.removeItem('auth')
-        navigate('/login')
+        dispatch(logout())
     }
 
     return (
@@ -59,7 +63,7 @@ const Header: React.FC = () => {
                         </div>
                         <div className="header__main">
                             {isAuth
-                                ? <div className="header__logout" onClick={logout}>
+                                ? <div className="header__logout" onClick={exit}>
                                     <span>Выйти</span>
                                     <img src={logoutImg} alt="logout" />
                                 </div>
