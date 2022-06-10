@@ -46,15 +46,14 @@ const Header: React.FC = () => {
                             </div>
                             <div className="header__links">
                                 {links.map(link => (
-                                    <div
+                                    <Link
+                                        to={link.path}
                                         key={link.path}
                                         className={cn({ 'link-active': link.path === activeLink }, 'header__link')}
                                         onClick={() => toggleActiveLink(link.path)}
                                     >
-                                        <Link to={link.path}>
-                                            {link.name}
-                                        </Link>
-                                    </div>
+                                        {link.name}
+                                    </Link>
                                 ))}
                             </div>
                         </div>
