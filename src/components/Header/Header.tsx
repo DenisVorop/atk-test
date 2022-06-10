@@ -35,6 +35,7 @@ const Header: React.FC = () => {
     const exit = () => {
         localStorage.removeItem('auth')
         dispatch(logout())
+        navigate('/login')
     }
 
     return (
